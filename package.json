@@ -1,4 +1,3 @@
-
 {
   "name": "tontolonova-backend",
   "version": "1.0.0",
@@ -12,14 +11,13 @@
   "author": "Gracia",
   "license": "MIT",
   "dependencies": {
-    "@prisma/client": "^5.0.0",
+    "@prisma/client": "^5.22.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.0",
     "express": "^4.21.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.22",
-    "prisma": "^5.0.0"
+    "prisma": "^5.22.0"
   }
 }
-
