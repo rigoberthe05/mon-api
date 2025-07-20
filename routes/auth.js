@@ -25,4 +25,28 @@ router.post('/register', async (req, res) => {
   }
 });
 
+router.post('/login', async (req, res) => {
+  const { email, mdp } = req.body;
+
+  try {
+    const user = await prisma.user.findUnique({
+      where: { email },
+    });
+
+    if (!user) {
+      return res.status(404).json({ message: '❌ Utilisateur non trouvé' });
+    }
+
+    if (user.mdp !== mdp) {
+      return res.status(401).json({ message: '❌ Mot de passe incorrect' });
+    }
+
+    res.status(200).json({ message: '✅ Connexion réussie', user });
+  } catch (error) {
+    console.error('❌ Erreur lors de la connexion :', error);
+    res.status(500).json({ message: 'Erreur serveur' });
+  }
+});
+
+
 module.exports = router;
